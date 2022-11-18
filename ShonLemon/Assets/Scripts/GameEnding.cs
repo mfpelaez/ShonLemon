@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameEnding : MonoBehaviour
 {
@@ -10,11 +11,13 @@ public class GameEnding : MonoBehaviour
     public AudioSource exitAudio;
     public CanvasGroup caughtBackgroundImageCanvasGroup;
     public AudioSource caughtAudio;
+    public CanvasGroup InstruccionesBackgroundCanvasGroup;
 
     bool m_IsPlayerAtExit;
     bool m_IsPlayerCaught;
     float m_Timer;
     bool m_HasAudioPlayed;
+    bool m_IsPlayerAtInstrucciones;
 
     void OnTriggerEnter(Collider other)
     {
@@ -24,6 +27,10 @@ public class GameEnding : MonoBehaviour
         }
     }
 
+    public void InstruccionesPlayer()
+    {
+        m_IsPlayerAtInstrucciones = true;
+    }
     public void CaughtPlayer()
     {
         m_IsPlayerCaught = true;
